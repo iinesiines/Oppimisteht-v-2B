@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="Pohjoista luontoa kuvaava kuvitus">
+    <defs><linearGradient id="sky" x1="0" x2="0.15" y1="0" y2="1"><stop stop-color="#7aadb1"/><stop offset="1" stop-color="#e5d5bb"/></linearGradient>
+    <linearGradient id="lake" x1="0" x2="0.6" y1="0" y2="1"><stop stop-color="#689a8b"/><stop offset="1" stop-color="#1f575b"/></linearGradient>
+    <linearGradient id="mount" x1="0" x2="0.8" y1="0" y2="1"><stop stop-color="#689190"/><stop offset="1" stop-color="#1f575b"/></linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="24"/></filter>
+    </defs>
+    <rect width="1200" height="760" fill="url(#sky)"/>
+    <circle cx="820" cy="180" r="116" fill="#e5d5bb" opacity=".26" filter="url(#blur)"/>
+    <circle cx="820" cy="180" r="54" fill="#e5d5bb" opacity=".92"/>
+    <path d="M0 471 L105 365 L255 517 L447 190 L600 372 L754 175 L950 433 L1090 327 L1200 471V760H0Z" fill="#689190" opacity=".53"/>
+    <path d="M0 524 L155 342 L358 540 L560 296 L727 509 L937 304 L1200 502V760H0Z" fill="url(#mount)"/>
+    <path d="M490 357L560 296L610 357L573 346L560 325L541 345Z" fill="#e5d5bb" opacity=".88"/>
+    <path d="M876 365L937 304L996 370L956 354L935 331L916 354Z" fill="#e5d5bb" opacity=".62"/>
+    <path d="M0 547 C260 502 360 600 650 540 S 980 517 1200 562 V760H0Z" fill="#689a8b"/>
+    
+<path d="M0 574Q280 564 600 576T1200 574V760H0Z" fill="url(#lake)" opacity=".85"/>
+<path d="M579 592h117" stroke="#e5d5bb" stroke-width="1" opacity="0.21" stroke-linecap="round"/>
+<path d="M523 605h113" stroke="#e5d5bb" stroke-width="2" opacity="0.3" stroke-linecap="round"/>
+<path d="M583 618h165" stroke="#e5d5bb" stroke-width="3" opacity="0.39" stroke-linecap="round"/>
+<path d="M602 631h262" stroke="#e5d5bb" stroke-width="2" opacity="0.13" stroke-linecap="round"/>
+<path d="M61 644h158" stroke="#e5d5bb" stroke-width="1" opacity="0.28" stroke-linecap="round"/>
+<path d="M81 657h246" stroke="#e5d5bb" stroke-width="2" opacity="0.15" stroke-linecap="round"/>
+<path d="M370 670h270" stroke="#e5d5bb" stroke-width="1" opacity="0.14" stroke-linecap="round"/>
+<path d="M695 683h239" stroke="#e5d5bb" stroke-width="3" opacity="0.18" stroke-linecap="round"/>
+<path d="M227 696h173" stroke="#e5d5bb" stroke-width="3" opacity="0.38" stroke-linecap="round"/>
+<path d="M850 709h134" stroke="#e5d5bb" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+<path d="M517 722h100" stroke="#e5d5bb" stroke-width="2" opacity="0.34" stroke-linecap="round"/>
+<path d="M398 614v-46m-13 19l13 -29l13 29Z" fill="#689190" opacity=".62"/>
+<path d="M919 645v-97m-28 41l28 -62l28 62Z" fill="#1f575b" opacity=".62"/>
+<path d="M1123 579v-80m-23 34l23 -51l23 51Z" fill="#1f575b" opacity=".62"/>
+<path d="M410 593v-120m-34 51l34 -76l34 76Z" fill="#689190" opacity=".62"/>
+<path d="M1086 593v-91m-26 39l26 -58l26 58Z" fill="#1f575b" opacity=".62"/>
+<path d="M267 657v-72m-20 30l20 -46l20 46Z" fill="#1f575b" opacity=".62"/>
+<path d="M910 651v-83m-24 35l24 -53l24 53Z" fill="#689190" opacity=".62"/>
+<path d="M1116 624v-92m-26 39l26 -58l26 58Z" fill="#1f575b" opacity=".62"/>
+<path d="M270 661v-115m-33 49l33 -73l33 73Z" fill="#1f575b" opacity=".62"/>
+<path d="M199 549v-105m-30 45l30 -67l30 67Z" fill="#689190" opacity=".62"/>
+<path d="M625 666v-79m-22 33l22 -50l22 50Z" fill="#1f575b" opacity=".62"/>
+<path d="M188 648v-46m-13 19l13 -29l13 29Z" fill="#1f575b" opacity=".62"/>
+<path d="M690 579v-77m-22 33l22 -49l22 49Z" fill="#689190" opacity=".62"/>
+<path d="M793 533v-106m-30 45l30 -67l30 67Z" fill="#1f575b" opacity=".62"/>
+<path d="M113 697q5 -9 10 -13" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M693 777q2 -14 4 -20" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M95 699q1 -8 2 -12" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M1121 738q4 -11 8 -16" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M493 698q4 -11 8 -16" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M814 729q3 -4 6 -6" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M267 713q-5 -12 -10 -18" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M241 761q0 -13 0 -19" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M170 754q-6 -4 -12 -6" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M229 736q3 -8 6 -12" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M715 748q-5 -14 -10 -21" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M914 690q7 -14 14 -20" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M407 776q0 -16 0 -24" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M135 755q6 -12 12 -18" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M229 773q5 -4 10 -7" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M837 682q0 -16 0 -23" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M941 711q-2 -9 -4 -14" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M113 711q2 -11 4 -16" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M419 757q-6 -9 -12 -13" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M1197 724q2 -14 4 -21" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M1111 689q-2 -6 -4 -9" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M220 691q5 -8 10 -12" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M488 729q-6 -12 -12 -18" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M127 705q0 -7 0 -10" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M1153 742q4 -14 8 -20" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M131 751q-1 -11 -2 -17" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M740 756q-2 -11 -4 -17" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+<path d="M317 694q0 -12 0 -18" stroke="#689190" stroke-width="2" opacity=".34" fill="none"/>
+</svg>
