@@ -1,0 +1,305 @@
+/* NORDIC NOTES | Oppimistehtävä 2B | CSS Grid + CSS-animaatiot
+   Rakenne: nimetyt CSS Grid -alueet + 900 ja 600 px media queries.
+   Kuvitus: alkuperäiset paikalliset SVG-tiedostot, kaikki kuvat alt-tekstitetty.
+*/
+:root {
+  --pohja: #eeeae2;
+  --musta: #253530;
+  --harmaa: #6d7770;
+  --vihrea: #294841;
+  --viiva: #e0e6df;
+  --kulma: 16px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--pohja); color: var(--musta); font-family: 'Segoe UI', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+img { display:block; max-width: 100%; }
+:focus-visible { outline: 3px solid #d6a86c; outline-offset: 3px; }
+.ohita { position: absolute; transform: translateY(-180%); z-index: 20; background: white; color: var(--vihrea); padding: 13px 18px; }
+.ohita:focus { transform: translateY(0); }
+
+
+/* GitHub Pages: Font Awesome -fontit ovat SVG-kuvien tavoin päätasolla. 
+   Ulkoisen kirjaston fonttipolun ylikirjoitus säilyttää alkuperäisen kirjastotiedoston ennallaan. */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('fontawesome-webfont.woff2') format('woff2'),
+       url('fontawesome-webfont.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+  font-display: block;
+}
+
+/* 1. SUURI NÄYTTÖ: nav + otsikko + neljä korttia per rivi. */
+.sivupohja {
+  display: grid;
+  width: min(1520px, 100%);
+  margin: 0 auto;
+  padding: 18px;
+  gap: 14px;
+  grid-template-columns: 224px repeat(4, minmax(0, 1fr));
+  grid-template-areas:
+    "navigaatio otsikko otsikko otsikko otsikko"
+         "navigaatio kortti1 kortti2 kortti3 kortti4"
+         "navigaatio kortti5 kortti6 kortti7 kortti8"
+         "navigaatio kortti9 kortti10 kortti11 kortti12"
+         "navigaatio mainos1 mainos1 mainos2 mainos2";
+  align-items: stretch;
+}
+.navigaatio { grid-area: navigaatio; background: var(--vihrea); color:#f6f3e9; border-radius: var(--kulma); padding: 32px 20px 22px; display:flex; flex-direction:column; min-width:0; }
+.brandi { display:flex; gap:12px; align-items:center; padding: 2px 6px 42px; }
+.brandi-ikoni { width:38px; height:38px; border:1px solid #8daa9c; border-radius:50%; display:grid; place-items:center; font-size:23px; color:#dfdbbf; flex-shrink:0; }
+.brandi-nimi { font-weight:500; letter-spacing: 2px; font-size:14px; line-height:1.3; }
+.brandi-nimi strong { letter-spacing:1.4px; }
+.alue-nimi { margin:0 0 14px; padding-left:12px; font-size:10px; text-transform:uppercase; letter-spacing:2px; color:#aebfb4; }
+.nav-linkit { display:grid; gap:6px; }
+.nav-linkki { display:flex; gap:13px; align-items:center; text-decoration:none; border-radius:10px; padding:15px 11px; font-weight:600; font-size:14px; color:#e3ece5; transition:background .2s, transform .2s; }
+.nav-linkki i { font-size:17px; color:#cfddce; }
+.nav-linkki:hover, .nav-linkki:focus-visible { background:#3b6157; transform:translateX(2px); }
+.nav-alatunniste { margin:auto 0 0; padding:30px 12px 2px; color:#a8bfb3; font-size:10px; line-height:1.8; letter-spacing:1.7px; }
+.nav-alatunniste span { font-size:18px; }
+
+.otsikko { grid-area: otsikko; min-width:0; position:relative; isolation:isolate; overflow:hidden; border-radius:var(--kulma); min-height:270px; background: #203a36; color:#fff; display:flex; align-items:center; justify-content:space-between; padding:34px clamp(28px,4vw,60px); }
+.otsikko-sisalto { position:relative; max-width:700px; }
+.pienotsikko { text-transform:uppercase; letter-spacing:2.4px; font-size:11px; font-weight:700; color:#e9e5d4; }
+.piste { display:inline-block; width:7px; height:7px; border-radius:50%; background:#c3cf98; margin-right:7px; }
+.otsikko h1 { font-family:Georgia, 'Times New Roman', serif; font-weight:400; letter-spacing:-1.3px; font-size:clamp(36px,4vw,62px); line-height:1.05; margin:18px 0 12px; }
+.otsikko h1 em { font-weight:400; color:#e4e6cf; }
+.otsikko p { margin:0; max-width:420px; font-size:15px; line-height:1.65; color:#f0f4ef; }
+.otsikko-linkki { display:inline-flex; align-items:center; gap:13px; margin-top:20px; font-size:12px; font-weight:800; letter-spacing:.6px; text-decoration:none; padding-bottom:7px; border-bottom:1px solid #eeeada; }
+.otsikko-linkki:hover { color:#fff2bd; }
+.hero-numero { align-self:flex-end; font-size:10px; letter-spacing:1.3px; white-space:nowrap; opacity:.9; }
+
+/* 2. Kortit on nimetty yksilöllisin grid-area-aluein. */
+.kortti1 { grid-area: kortti1; }
+.kortti2 { grid-area: kortti2; }
+.kortti3 { grid-area: kortti3; }
+.kortti4 { grid-area: kortti4; }
+.kortti5 { grid-area: kortti5; }
+.kortti6 { grid-area: kortti6; }
+.kortti7 { grid-area: kortti7; }
+.kortti8 { grid-area: kortti8; }
+.kortti9 { grid-area: kortti9; }
+.kortti10 { grid-area: kortti10; }
+.kortti11 { grid-area: kortti11; }
+.kortti12 { grid-area: kortti12; }
+
+.kortti { min-width:0; overflow:hidden; border-radius:var(--kulma); background:#fff; border:1px solid var(--viiva); box-shadow:0 3px 10px rgba(30,53,42,.025); transition:transform .2s, box-shadow .2s; }
+.kortti:hover { transform:translateY(-3px); box-shadow:0 9px 25px rgba(30,53,42,.075); }
+.kortti-kuva { aspect-ratio:1.7/1; overflow:hidden; background:#dbe7df; }
+.kortti-kuva img { width:100%; height:100%; object-fit:cover; object-position:50% 47%; transition:transform .4s; }
+.kortti:hover .kortti-kuva img { transform:scale(1.045); }
+.kortti-sisalto { padding:17px 19px 23px; }
+.kortti-tunnus { font-size:10px; text-transform:uppercase; letter-spacing:1.65px; color:#6e8b7c; font-weight:800; }
+.kortti-tunnus span { color:#b5c8bb; margin:0 4px; }
+.kortti h2 { margin:10px 0 8px; font:400 clamp(19px,1.8vw,24px)/1.14 Georgia, 'Times New Roman', serif; letter-spacing:-.3px; }
+.kortti p { margin:0; color:var(--harmaa); font-size:12px; line-height:1.65; }
+
+/* 3. Mainosalueet: oma kuva + kuvan päälle sijoitettu teksti. */
+.mainos { overflow:hidden; isolation:isolate; border-radius:var(--kulma); position:relative; min-height:205px; padding:26px 28px; display:flex; align-items:end; justify-content:space-between; gap:10px; color:#fff; }
+.mainos::before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(100deg,rgba(21,47,43,.89),rgba(31,56,54,.5)),url('mainos1.svg') center/cover no-repeat; transition:transform .35s; }
+.mainos:hover::before { transform:scale(1.06); }
+.mainos1 { grid-area: mainos1; }
+.mainos2 { grid-area: mainos2; }
+.mainos2::before { background:linear-gradient(100deg,rgba(55,45,47,.9),rgba(64,59,62,.38)),url('mainos2.svg') center/cover no-repeat; }
+.mainos-teksti { max-width:90%; }
+.mainos-eyebrow { font-size:10px; font-weight:700; letter-spacing:1.5px; color:#e8e6d4; }
+.mainos h2 { font:400 clamp(24px,2.7vw,37px)/1.06 Georgia, 'Times New Roman',serif; margin:10px 0 8px; }
+.mainos h2 em { color:#e6dfc1; }
+.mainos p { margin:0; line-height:1.55; font-size:12px; color:#f4f2eb; }
+.mainos-nuoli { flex-shrink:0; width:35px; height:35px; display:grid; place-items:center; border:1px solid #f1ede299; border-radius:50%; }
+.alaviite { max-width:1520px; margin:0 auto; padding:8px 35px 27px; font-size:10px; color:#6b7e74; font-weight:700; letter-spacing:1.2px; display:flex; gap:12px; flex-wrap:wrap; }
+.alaviite span { letter-spacing:.3px; font-weight:400; }
+
+/* 4. TABLETTI 601–900px: 2 korttia rinnakkain, edelleen nav vasemmalla. */
+@media (min-width: 601px) and (max-width: 900px) {
+  .sivupohja { grid-template-columns:180px repeat(2,minmax(0,1fr)); grid-template-areas:
+    "navigaatio otsikko otsikko"
+         "navigaatio kortti1 kortti2"
+         "navigaatio kortti3 kortti4"
+         "navigaatio kortti5 kortti6"
+         "navigaatio kortti7 kortti8"
+         "navigaatio kortti9 kortti10"
+         "navigaatio kortti11 kortti12"
+         "navigaatio mainos1 mainos2"; gap:12px; padding:12px; }
+  .navigaatio { padding:24px 13px; }
+  .brandi { gap:9px; padding:0 3px 31px; }
+  .brandi-nimi { font-size:12px; letter-spacing:1px; }
+  .brandi-ikoni { width:32px; height:32px; font-size:19px; }
+  .nav-linkki { font-size:13px; padding:13px 8px; gap:8px; }
+  .otsikko { min-height:245px; padding:26px; }
+  .otsikko h1 { font-size:clamp(34px,5vw,47px); }
+  .hero-numero { display:none; }
+  .kortti h2 { font-size:22px; }
+  .mainos { min-height:195px; padding:21px; }
+  .mainos h2 { font-size:25px; }
+  .mainos-nuoli { display:none; }
+  .alaviite { padding:10px 24px 24px; }
+}
+
+/* 5. MOBIILI enintään 600px: 1 kortti/rivi, kapea navigaatio vasemmalla. */
+@media (max-width: 600px) {
+  .sivupohja { grid-template-columns: clamp(88px,26vw,112px) minmax(0,1fr); grid-template-areas:
+    "navigaatio otsikko"
+         "navigaatio kortti1"
+         "navigaatio kortti2"
+         "navigaatio kortti3"
+         "navigaatio kortti4"
+         "navigaatio kortti5"
+         "navigaatio kortti6"
+         "navigaatio kortti7"
+         "navigaatio kortti8"
+         "navigaatio kortti9"
+         "navigaatio kortti10"
+         "navigaatio kortti11"
+         "navigaatio kortti12"
+         "navigaatio mainos1"
+         "navigaatio mainos2"; gap:8px; padding:8px; }
+  .navigaatio { padding:16px 5px; border-radius:11px; }
+  .brandi { display:flex; flex-direction:column; gap:7px; text-align:center; padding:4px 2px 22px; }
+  .brandi-ikoni { width:31px; height:31px; font-size:17px; }
+  .brandi-nimi { font-size:9px; letter-spacing:.45px; }
+  .alue-nimi { font-size:8px; letter-spacing:.4px; text-align:center; padding:0; margin:0 0 10px; }
+  .nav-linkit { gap:3px; }
+  .nav-linkki { padding:11px 3px; display:flex; flex-direction:column; gap:4px; font-size:10px; text-align:center; word-break:normal; }
+  .nav-linkki i { font-size:17px; }
+  .nav-alatunniste { display:none; }
+  .otsikko { min-height:200px; padding:22px 17px; border-radius:11px; }
+  .pienotsikko { font-size:8px; letter-spacing:1px; }
+  .piste { width:5px; height:5px; margin-right:3px; }
+  .otsikko h1 { font-size:clamp(24px,6.7vw,34px); letter-spacing:-.5px; margin:12px 0 9px; }
+  .otsikko p { font-size:11px; line-height:1.45; }
+  .otsikko-linkki { font-size:10px; gap:5px; margin-top:12px; }
+  .hero-numero { display:none; }
+  .kortti { border-radius:11px; }
+  .kortti-kuva { aspect-ratio:1.6/1; }
+  .kortti-sisalto { padding:12px 12px 16px; }
+  .kortti-tunnus { font-size:9px; letter-spacing:1px; }
+  .kortti h2 { font-size:clamp(17px,4.8vw,22px); margin:7px 0; }
+  .kortti p { font-size:11px; line-height:1.45; }
+  .mainos { min-height:205px; padding:20px 14px; border-radius:11px; }
+  .mainos-eyebrow { font-size:9px; letter-spacing:.65px; }
+  .mainos h2 { font-size:clamp(21px,6vw,29px); }
+  .mainos p { font-size:11px; }
+  .mainos-nuoli { display:none; }
+  .alaviite { padding:8px 14px 22px; font-size:9px; }
+}
+
+
+/* ================================================================
+   OPPIMISTEHTÄVÄ 2B – CSS-ANIMAATIOT (ei JavaScriptiä)
+   A: otsikkokuvan zoom + tekstin ilmestyminen
+   B: navigaation liuku, värinvaihto ja ikonien liike
+   C: korttikuviin kolme erilaista animaatiota
+   D: kahden alareunan mainosbannerin liikkeet
+   Kaikki liike estetään tarvittaessa prefers-reduced-motionilla.
+   ================================================================ */
+
+/* A – Otsikkokuva on oma kerroksensa: vain kuva skaalautuu, teksti ei. */
+.otsikko::before, .otsikko::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.otsikko::before {
+  z-index: -2;
+  background: url('otsikko.svg') center 52% / cover no-repeat;
+  animation: sankari-kuva-sisaan 1.35s cubic-bezier(.2,.7,.2,1) both;
+}
+.otsikko::after {
+  z-index: -1;
+  background: linear-gradient(100deg,rgba(21,49,51,.91) 1%,rgba(29,65,66,.68) 54%,rgba(38,70,66,.16));
+}
+.otsikko-sisalto, .hero-numero { z-index: 1; }
+.otsikko .pienotsikko { display:inline-block; animation: teksti-nousee .72s .13s both; }
+.otsikko h1 { animation: teksti-nousee .85s .25s both; }
+.otsikko p { animation: teksti-nousee .8s .42s both; }
+.otsikko-linkki { animation: teksti-nousee .75s .6s both; }
+.anim-vihje { display:block; margin-top:13px; color:#e3eadf; font-size:10px; line-height:1.35; letter-spacing:.1px; animation: teksti-nousee .7s .78s both; }
+@keyframes sankari-kuva-sisaan {
+  from { opacity:.5; transform:scale(1.12); }
+  to   { opacity:1;  transform:scale(1); }
+}
+@keyframes teksti-nousee {
+  from { opacity:0; transform:translateY(19px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* B – Painikkeen reunus ja kuvake reagoivat myös näppäimistöfokukseen. */
+.nav-linkki { position:relative; isolation:isolate; transition:background-color .28s ease,transform .28s ease,color .28s ease; }
+.nav-linkki::before {
+  content:''; position:absolute; left:1px; top:20%; bottom:20%; width:3px;
+  border-radius:4px; background:#f1ddb5; transform:scaleY(0);
+  transition:transform .3s ease;
+}
+.nav-linkki i { display:inline-block; transition:transform .3s ease, color .3s ease; }
+.nav-linkki:hover, .nav-linkki:focus-visible { background:#3b6157; transform:translateX(4px); color:#fff; }
+.nav-linkki:hover::before, .nav-linkki:focus-visible::before { transform:scaleY(1); }
+.nav-linkki:hover i, .nav-linkki:focus-visible i { transform:translateY(-2px) rotate(-8deg); color:#f1ddb5; }
+
+/* C – 12 kuvaa: kolme erilaista hover-, kosketus- ja fokusreaktiota. */
+.kortti { outline-offset:3px; transition:transform .28s ease,box-shadow .28s ease; }
+.kortti:focus-visible { outline:3px solid #bd9960; }
+.kortti:is(:hover,:focus,:active) { transform:translateY(-4px); box-shadow:0 13px 25px rgba(30,53,42,.12); }
+.kortti-kuva img { transition:transform .65s ease; will-change:auto; }
+/* Ryhmä 1: rauhallinen lähennys. */
+:is(.kortti1,.kortti4,.kortti7,.kortti10):is(:hover,:focus,:active) .kortti-kuva img {
+  animation: kuva-lahenna .8s cubic-bezier(.2,.7,.2,1) both;
+}
+/* Ryhmä 2: kuva liukuu vaakasuunnassa. */
+:is(.kortti2,.kortti5,.kortti8,.kortti11):is(:hover,:focus,:active) .kortti-kuva img {
+  animation: kuva-liuku .8s cubic-bezier(.2,.7,.2,1) both;
+}
+/* Ryhmä 3: hienovarainen kallistus. */
+:is(.kortti3,.kortti6,.kortti9,.kortti12):is(:hover,:focus,:active) .kortti-kuva img {
+  animation: kuva-kallistus .8s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes kuva-lahenna {
+  from { transform:scale(1); } to { transform:scale(1.11); }
+}
+@keyframes kuva-liuku {
+  from { transform:scale(1.05) translateX(0); }
+  to { transform:scale(1.11) translateX(-3.5%); }
+}
+@keyframes kuva-kallistus {
+  from { transform:scale(1); } to { transform:scale(1.1) rotate(2deg); }
+}
+
+/* D – Mainosbannerit ilmestyvät eri suuntiin ja reagoivat hoveriin. */
+.mainos1 { animation: mainos-vasemmalta .85s .3s both; }
+.mainos2 { animation: mainos-oikealta .85s .4s both; }
+.mainos::before { transition:transform .65s cubic-bezier(.2,.7,.2,1), filter .65s ease; }
+.mainos:is(:hover,:focus,:active)::before { transform:scale(1.085); filter:saturate(1.12); }
+.mainos-teksti { transition:transform .45s ease; }
+.mainos:is(:hover,:focus,:active) .mainos-teksti { transform:translateY(-6px); }
+.mainos:focus-visible { outline:3px solid #bd9960; outline-offset:3px; }
+.mainos-nuoli { transition:transform .3s ease,background-color .3s ease; }
+.mainos:is(:hover,:focus,:active) .mainos-nuoli { transform:translateX(6px); background-color:#ffffff22; }
+@keyframes mainos-vasemmalta {
+  from {opacity:0; transform:translateX(-24px);} to {opacity:1;transform:translateX(0);}
+}
+@keyframes mainos-oikealta {
+  from {opacity:0; transform:translateX(24px);} to {opacity:1;transform:translateX(0);}
+}
+
+/* Puhelimella liikkeet pidetään lyhyinä eikä hoveria edellytetä. */
+@media (max-width:600px) {
+  .otsikko::before { animation-duration:.9s; }
+  .otsikko h1, .otsikko p, .otsikko-linkki { animation-duration:.55s; }
+  .anim-vihje { font-size:9px; margin-top:9px; }
+  .nav-linkki:hover,.nav-linkki:focus-visible {transform:translateX(1px);}
+  .kortti:is(:hover,:focus,:active) {transform:translateY(-2px);}
+  .mainos1,.mainos2 {animation-duration:.65s;}
+}
+/* Saavutettavuus: käyttäjän vähennetyn liikkeen toive ohittaa KAIKKI animaatiot. */
+@media (prefers-reduced-motion: reduce) {
+  html {scroll-behavior:auto;}
+  *,*::before,*::after {
+    animation-duration:0.01ms !important;
+    animation-delay:0ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+  }
+}
